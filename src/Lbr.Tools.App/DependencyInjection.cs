@@ -1,4 +1,5 @@
-﻿using Lbr.Tools.Services.InputService;
+﻿using Lbr.Tools.Services.BossFarmService;
+using Lbr.Tools.Services.InputService;
 using Lbr.Tools.Services.MenuService;
 using Lbr.Tools.Services.TradeService;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,7 @@ public class DependencyInjection
         services.AddSingleton<IInputService, InputService>();
         services.AddSingleton<ITradeService, TradeService>();
         services.AddSingleton<IMenuService, MenuService>();
+        services.AddSingleton<IBossFarmService, BossFarmService>();
         ServiceProvider = services.BuildServiceProvider(true);
     }
 

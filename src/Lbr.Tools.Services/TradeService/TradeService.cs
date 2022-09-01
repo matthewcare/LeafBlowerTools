@@ -17,6 +17,7 @@ public class TradeService : ITradeService
     private const int StartButtonHeight = 38;
     private const int StartButtonSpacing = 47;
     private const int TradeSlots = 6;
+    private static readonly TimeSpan RefreshInterval = TimeSpan.FromSeconds(10);
 
     private Bitmap _captureBmp = null!;
     private Graphics _captureGraphic = null!;
@@ -51,7 +52,7 @@ public class TradeService : ITradeService
             }
             else
             {
-                var stop = ConsoleHelper.ShowCountdown("No trades available, refreshing in {0:00}", 10);
+                var stop = ConsoleHelper.ShowCountdown("No trades available, refreshing in {0:mm\\:ss}", RefreshInterval);
                 if (stop)
                 {
                     break;

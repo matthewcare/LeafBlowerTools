@@ -2,15 +2,14 @@
 
 public class ConsoleHelper
 {
-    public static bool ShowCountdown(string message, int seconds)
+    public static bool ShowCountdown(string message, TimeSpan timeSpan)
     {
-        var i = seconds;
-        while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape) && i != 0)
+        while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape) && timeSpan.TotalSeconds != 0)
         {
             Console.SetCursorPosition(0, Console.CursorTop);
-            Console.Write(message, i);
+            Console.Write(message, timeSpan);
             Thread.Sleep(1000);
-            i--;
+            timeSpan = timeSpan.Add(TimeSpan.FromSeconds(-1));
         }
 
         var currentLineCursor = Console.CursorTop;
@@ -19,6 +18,6 @@ public class ConsoleHelper
         Console.SetCursorPosition(0, currentLineCursor);
 
         // If i isn't 0 then we must have broken out
-        return i != 0;
+        return timeSpan.TotalSeconds != 0;
     }
 }

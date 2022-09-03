@@ -18,14 +18,16 @@ public class InputService : IInputService
         Thread.Sleep(100);
     }
 
-    public void ScrollToBottom()
+    public void ScrollDown(int triggers)
     {
-        for (var i = 0; i < 20; i++)
+        for (var i = 0; i < triggers; i++)
         {
             MouseInputGenerator.MoveMouseWheel(-1);
             Thread.Sleep(100);
         }
     }
+
+    public void ScrollToBottom() => ScrollDown(20);
 
     public void TriggerKeyPress(VirtualKeyCode key)
     {

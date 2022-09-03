@@ -6,6 +6,6 @@ public partial class Constants
     {
         public static readonly string[] MainMenu = { "Trader", "Boss Farmer", "Exit" };
         public static readonly string[] TradeMenu = { "Gems", "Main Menu" };
-        public static readonly string[] BossFarmMenu = { "Cycle", "Cycle with Vortex", "Main Menu" };
+        public static readonly string[] BossFarmMenu = { "Cycle", "Cycle + Vortex", "Cycle + Vortex + Gem Trade", "Main Menu" };
     }
 }

@@ -1,4 +1,6 @@
-﻿using Lbr.Tools.Services.BossFarmService;
+﻿using Lbr.Tools.Services.ArtifactService;
+using Lbr.Tools.Services.BitmapService;
+using Lbr.Tools.Services.BossFarmService;
 using Lbr.Tools.Services.InputService;
 using Lbr.Tools.Services.MenuService;
 using Lbr.Tools.Services.TradeService;
@@ -17,6 +19,8 @@ public class DependencyInjection
         services.AddSingleton<ITradeService, TradeService>();
         services.AddSingleton<IMenuService, MenuService>();
         services.AddSingleton<IBossFarmService, BossFarmService>();
+        services.AddSingleton<IArtifactService, ArtifactService>();
+        services.AddSingleton<IBitmapService, BitmapService>();
         ServiceProvider = services.BuildServiceProvider(true);
     }
 

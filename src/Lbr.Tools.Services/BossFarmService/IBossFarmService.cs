@@ -1,6 +1,9 @@
-﻿namespace Lbr.Tools.Services.BossFarmService;
+﻿using Lbr.Tools.Core.Entities;
+
+namespace Lbr.Tools.Services.BossFarmService;
 
 public interface IBossFarmService
 {
-    void StartFarming(bool vortex);
+    void StartFarming(bool vortex, ITradable? tradeEntity = null);
+    void Cycle();
 }

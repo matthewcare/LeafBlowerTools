@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using Lbr.Tools.Core.Constants;
+﻿using Lbr.Tools.Core.Constants;
 using Lbr.Tools.Core.Entities;
 using Lbr.Tools.Services.BossFarmService;
 using Lbr.Tools.Services.TradeService;
@@ -19,11 +18,7 @@ public class MenuService : IMenuService
 
     public void ShowMainMenu()
     {
-        string? menuOption = null;
-        while (menuOption is null)
-        {
-            menuOption = GetMenuOption(Constants.Menus.MainMenu);
-        }
+        var menuOption = GetMenuOption(Constants.Menus.MainMenu);
 
         switch (menuOption)
         {
@@ -44,12 +39,8 @@ public class MenuService : IMenuService
 
     public void ShowTradeMenu()
     {
-        string? menuOption = null;
-        while (menuOption is null)
-        {
-            menuOption = GetMenuOption(Constants.Menus.TradeMenu);
-        }
-
+        var menuOption = GetMenuOption(Constants.Menus.TradeMenu);
+        
         switch (menuOption)
         {
             case "Gems":
@@ -67,11 +58,7 @@ public class MenuService : IMenuService
 
     public void ShowBossFarmerMenu()
     {
-        string? menuOption = null;
-        while (menuOption is null)
-        {
-            menuOption = GetMenuOption(Constants.Menus.BossFarmMenu);
-        }
+        var menuOption = GetMenuOption(Constants.Menus.BossFarmMenu);
 
         switch (menuOption)
         {
@@ -79,8 +66,12 @@ public class MenuService : IMenuService
                 _bossFarmService.StartFarming(false);
                 ShowMainMenu();
                 break;
-            case "Cycle with Vortex":
+            case "Cycle + Vortex":
                 _bossFarmService.StartFarming(true);
+                ShowMainMenu();
+                break;
+            case "Cycle + Vortex + Gem Trade":
+                _bossFarmService.StartFarming(true, new Gem());
                 ShowMainMenu();
                 break;
             case "Main Menu":
@@ -92,20 +83,24 @@ public class MenuService : IMenuService
         }
     }
 
-    private static string? GetMenuOption(string[] menuItems)
+    private static string GetMenuOption(IReadOnlyList<string> menuItems)
     {
-        Console.Clear();
-        for (var i = 0; i < menuItems.Length; i++)
+        string? menuOption = null;
+        while (menuOption is null)
         {
-            Console.WriteLine($"{i + 1}) {menuItems[i]}");
-        }
-        Console.Write("\r\nSelect an option: ");
+            Console.Clear();
+            for (var i = 0; i < menuItems.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}) {menuItems[i]}");
+            }
+            Console.Write("\r\nSelect an option: ");
 
-        if (!int.TryParse(Console.ReadLine(), out var option) || menuItems.Length <= option - 1)
-        {
-            return null;
+            if (int.TryParse(Console.ReadLine(), out var option) && option > 0 && option - 1 < menuItems.Count)
+            {
+                menuOption = menuItems[option - 1];
+            }
         }
 
-        return menuItems[option - 1];
+        return menuOption;
     }
 }

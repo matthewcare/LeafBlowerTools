@@ -1,6 +1,6 @@
 ﻿namespace Lbr.Tools.Services;
 
-public enum EntityType
+public enum ArtifactType
 {
-    Gem
+    Vortex
 }

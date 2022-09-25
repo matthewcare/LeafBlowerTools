@@ -2,7 +2,7 @@
 
 namespace Lbr.Tools.Core.Entities;
 
-public record Gem : IEntity
+public record Gem : ITradable
 {
     public int Width => 23;
     public int Height => 26;

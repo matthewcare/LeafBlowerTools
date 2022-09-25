@@ -2,7 +2,7 @@
 
 namespace Lbr.Tools.Core.Entities;
 
-public interface IEntity
+public interface ITradable
 {
     int Width { get; }
     int Height { get; }

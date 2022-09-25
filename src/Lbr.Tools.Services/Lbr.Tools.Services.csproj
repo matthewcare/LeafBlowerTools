@@ -1,19 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Dapplo.Windows.Input" Version="1.0.26" />
+		<PackageReference Include="Dapplo.Windows.Input" Version="1.0.27" />
 		<PackageReference Include="System.Drawing.Common" Version="6.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Lbr.Tools.Core\Lbr.Tools.Core.csproj" />
+		<ProjectReference Include="..\Lbr.Tools.Core\Lbr.Tools.Core.csproj" />
 	</ItemGroup>
 
 </Project>

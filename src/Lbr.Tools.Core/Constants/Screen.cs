@@ -2,6 +2,7 @@
 
 public partial class Constants
 {
+    // TODO - replace with Dapplo screen info
     public class Screen
     {
         /// <summary>

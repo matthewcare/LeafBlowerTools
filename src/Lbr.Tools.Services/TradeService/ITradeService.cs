@@ -4,5 +4,5 @@ namespace Lbr.Tools.Services.TradeService;
 
 public interface ITradeService
 {
-    void StartTrading<TEntity>(TEntity entity) where TEntity : IEntity;
+    TimeSpan Cycle<TTradable>(TTradable entity) where TTradable : ITradable;
 }
